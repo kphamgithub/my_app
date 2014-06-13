@@ -1,0 +1,26 @@
+<%= form_tag (matchquestions_path) do %>
+  <p>
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name %>
+  </p>
+  <div>
+  <table>
+    <th><%= label_tag :match %></th>
+	<th><%= label_tag :answer %></th>
+	<% (0..1).each_with_index do | t,index | %>
+    <tr>
+    <td>
+    <%= text_field_tag "match" + index.to_s %>
+	</td>
+    <td>
+    <%= text_field_tag "answer" + index.to_s %>
+	</td>
+	</tr>
+	<% end %>
+  </table>
+  </div>  
+  <p>
+    <%= submit_tag "Submit" %>
+  </p>
+<% end %>
+<%= link_to 'Back to Lessons List', matchquestions_path %>

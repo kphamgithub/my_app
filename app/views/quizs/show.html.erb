@@ -1,0 +1,25 @@
+z</h1>
+<h3>Name:<%= @quiz.name %></h3>
+<h3>id = <%= @quiz.id%> This quiz belongs to lesson: <%= @quiz.lesson.name %></h3>
+<p>Number of questions: <%= @quiz.quizquestions.count %></p>
+<% @quiz.quizquestions.each do |q| %>
+	<p>
+    <%= q.qtype %> 
+	id = <%= q.origin_id %>
+	<% if q.qtype == "Matchquestion" %>match id:
+		<%= q.match_id %>
+	<% end %>
+			<%= button_to "Delete ", { controller: "quizquestions", action: "destroy", quiz_id: @quiz.id, id: q.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+	</p>
+	<p>
+  <% end %>  
+  </p>  
+  
+<%= link_to 'Add question', add_questions_lesson_quiz_path(@quiz.lesson, @quiz) %>
+
+<% if @quiz.quizquestions.count > 0 %>
+<%=  link_to 'Take', take_quiz_lesson_quiz_path(@quiz.lesson,@quiz) %>
+<% end %>
+<%= link_to 'Quizzes for this lesson', lesson_quizs_path %>
+<%= link_to 'Home', welcome_index_path %>
+
