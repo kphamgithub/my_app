@@ -19,7 +19,7 @@ class MultichoicequestionsController < ApplicationController
 	  #render text: params[:id].inspect
       @multichoicequestion = Multichoicequestion.find(params[:id])
 	  @multichoicequestion.destroy
-	  redirect_to multichoicequestion_path
+	  redirect_to multichoicequestions_path
   end
 
   #def remove_from_quiz

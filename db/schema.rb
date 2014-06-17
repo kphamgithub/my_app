@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613010755) do
+ActiveRecord::Schema.define(version: 20140617192451) do
 
   create_table "fillquestions", force: true do |t|
     t.string   "name"
@@ -21,13 +21,20 @@ ActiveRecord::Schema.define(version: 20140613010755) do
     t.datetime "updated_at"
   end
 
+  create_table "lesson_vocas", force: true do |t|
+    t.integer  "lesson_id"
+    t.integer  "vocabulary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lessons", force: true do |t|
+    t.string   "name"
     t.string   "content"
+    t.string   "video"
     t.string   "level"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "video"
   end
 
   create_table "matches", force: true do |t|
@@ -93,7 +100,13 @@ ActiveRecord::Schema.define(version: 20140613010755) do
     t.integer  "lesson_id"
     t.string   "name"
     t.string   "password"
-    t.string   "lesson"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vocabularies", force: true do |t|
+    t.string   "name"
+    t.string   "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

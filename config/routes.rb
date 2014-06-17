@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :lesson_vocas
+
+  get 'vocabularies/index'
+
+  get 'vocabularies/new'
+
   get 'fillquestions/new'
 
   get 'multichoicequestions/new'
@@ -67,6 +73,9 @@ Rails.application.routes.draw do
 
 	 
 	 resources :users do
+            member do 
+                get 'add_lesson'
+            end
 	    resources :quizs do
 			member do
 				get 'list_questionresults'
@@ -77,7 +86,7 @@ Rails.application.routes.draw do
 	 end
 	   
 	 resources :sessions
-	 
+         resources :vocabularies	 
 	 resources :multichoicequestions do
 		member do
 			get 'take'

@@ -9,14 +9,11 @@ class QuizquestionsController < ApplicationController
 	@quizquestion = Quizquestion.find(params[:id])
 	@source_question = nil
 	if @quizquestion.qtype == "Multichoicequestion"
-		@source_question = Multichoicequestion.find(@quizquestion.origin_id)
-		#render text: "MULTI"
+	    @source_question = Multichoicequestion.find(@quizquestion.origin_id)
 	elsif @quizquestion.qtype == "Fillquestion"
-	    #render text: "FILL"
-		@source_question = Fillquestion.find(@quizquestion.origin_id)
+	    @source_question = Fillquestion.find(@quizquestion.origin_id)
     elsif @quizquestion.qtype == "Matchquestion"
 	    @source_question = Matchquestion.find(@quizquestion.origin_id)
-		#render text: params.inspect	
 	end	
   end
   

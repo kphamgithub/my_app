@@ -17,14 +17,13 @@
           <%= link_to "Tieng Anh Tuy Hoa", '#', id: "logo" %>
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Home",    'http://tienganhtuyhoa.com' %></li>
-              <li><%= link_to "Help",    '#' %></li>
 
 	  <% if current_user %>
-	  Logged in as <%= current_user.name %>
-	  <li><%= link_to "Log out", log_out_path %><li>
+          <li><%= link_to "Home",    'http://tienganhtuyhoa.com' %></li>
+          <li><%= link_to "Log out", log_out_path %></li>
+	  <li><%= current_user.name %></li>
 	  <% else %>
-	  <li><%= link_to "Log in", log_in_path %><li>
+	  <li><%= link_to "Log in", log_in_path %></li>
           <% end %>
             </ul>
           </nav>

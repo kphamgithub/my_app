@@ -1,0 +1,15 @@
+    <h2> For Admin only</h2>
+	<% @matchquestions.each do |q| %>
+	<p> Question id:
+	<%= q.id %>
+	</p>
+    <p> Name: 
+	<%= q.name %>
+	</p>
+	<%= button_to "Delete ", { controller: "matchquestions", action: "destroy", id: q.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+	<% end %>
+ <p><%= link_to "new match question", new_matchquestion_path %></p>
+
+
+
+

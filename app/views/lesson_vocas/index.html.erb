@@ -1,0 +1,27 @@
+<h1>Listing lesson_vocas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lesson</th>
+      <th>Vocabulary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lesson_vocas.each do |lesson_voca| %>
+      <tr>
+        <td><%= lesson_voca.lesson_id %></td>
+        <td><%= lesson_voca.vocabulary_id %></td>
+        <td><%= link_to 'Show', lesson_voca %></td>
+        <td><%= link_to 'Edit', edit_lesson_voca_path(lesson_voca) %></td>
+        <td><%= link_to 'Destroy', lesson_voca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lesson voca', new_lesson_voca_path %>

@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+     @users = User.all
   end
-
   def new
   end
 
+  def add_lesson
+      @user = User.find(params[:id])
+  end
+  
   def edit
   @user = User.find(params[:id])
   end
-
   def create
       #@user = User.new(name: "bee",
        # password: "n", password_confirmation: "n")
@@ -20,10 +22,9 @@ class UsersController < ApplicationController
 	  @user.save
 	  redirect_to @user 	  
   end
-
   def show
 	  @user = User.find(params[:id])
-	  @lesson = Lesson.find(@user.lesson_id)
+	  @lesson = @user.lesson #Lesson.find(@user.lesson_id)
   end
   
   def update
@@ -41,5 +42,5 @@ class UsersController < ApplicationController
 	params.require(:user).permit(:name,:lesson_id, :level)
   end
   #ANY METHOD ADDED HEREAFTER will become private, BEWARE!!! kpham
-
 end
+

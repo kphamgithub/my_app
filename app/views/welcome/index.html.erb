@@ -4,11 +4,11 @@
         <% if current_user.name == "kpham" %>
 		   <p><%= link_to "manage users", users_path %></p>
 		   <p><%= link_to "manage lessons", lessons_path %></p>
-		   <p><%= link_to "new multichoice question", new_multichoicequestion_path %></p>
-		   <p><%= link_to "new fill question", new_fillquestion_path %></p>
-		   	<p><%= link_to "new match question", new_matchquestion_path %></p>
+		   <p><%= link_to "manage vocabularies", vocabularies_path %></p>
+		   <p><%= link_to "manage multichoicequestions", multichoicequestions_path %></p>
+		   <p><%= link_to "manage matchquestions", matchquestions_path %></p>
+		   <p><%= link_to "manage fillquestions", fillquestions_path %></p>
 		<% else %>
-			
 			<p>Your Current Lesson:
 			<%= link_to @my_lesson.name, lesson_path(current_user.lesson_id)%>
 			<% quizzes = @my_lesson.quizzes %>
